@@ -22,6 +22,8 @@ def main():
         
         screen.fill("black")
 
+        player.update(dt)
+
         player.draw(screen) # draw the triangle
 
         pygame.display.flip()
