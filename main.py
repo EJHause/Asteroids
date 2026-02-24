@@ -3,7 +3,7 @@ from constants import SCREEN_WIDTH, SCREEN_HEIGHT
 from logger import log_state
 from player import Player
 from asteroidfield import AsteroidField
-
+from asteroid import Asteroid
 
 def main():
     pygame.init()
@@ -19,6 +19,15 @@ def main():
     #2 Register Player class with groups
 
     Player.containers = (updatable, drawable)
+
+    # Register asteroid and asteroidfield; instantiate asteroidfield
+
+    asteroids = pygame.sprite.Group()
+
+    Asteroid.containers = (asteroids, updatable, drawable)
+    AsteroidField.containers = (updatable,)
+
+    field = AsteroidField()
 
     #3 Create the player
 
