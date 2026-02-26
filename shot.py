@@ -1,6 +1,6 @@
 import pygame
 from circleshape import CircleShape
-from constants import SHOT_RADIUS, PLAYER_SHOOT_SPEED, LINE_WIDTH
+from constants import SHOT_RADIUS, PLAYER_SHOOT_SPEED, LINE_WIDTH, SCREEN_WIDTH, SCREEN_HEIGHT
 
 class Shot(CircleShape):
     containers = ()   
@@ -23,7 +23,7 @@ class Shot(CircleShape):
 
         #Remove if off-screen
         if (
-            self.position.x < 0 or self.position.x > 800 or
-            self.position.y < 0 or self.position.y > 600
+            self.position.x < 0 or self.position.x > SCREEN_WIDTH or
+            self.position.y < 0 or self.position.y > SCREEN_HEIGHT
         ):
             self.kill()
