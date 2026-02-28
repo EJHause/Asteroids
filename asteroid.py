@@ -42,3 +42,7 @@ class Asteroid(CircleShape):
 
         a1.velocity = vel1
         a2.velocity = vel2
+
+    def bounce(self, normal):
+        self.velocity = self.velocity.reflect(normal)
+
