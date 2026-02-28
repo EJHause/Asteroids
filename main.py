@@ -37,6 +37,10 @@ def main():
 
     player = Player(SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2)
 
+    score = 0
+
+    font = pygame.font.Font(None, 36)
+
     while True:
         
         for event in pygame.event.get():
@@ -61,12 +65,16 @@ def main():
                     asteroid.split()
                     shot.kill()
                     log_event("asteroid_shot")
+                    score += 10
 
         log_state()
 
         screen.fill("black")
         for obj in drawable:
             obj.draw(screen)
+
+        score_text = font.render(f"Score: {score}", True, "white")
+        screen.blit(score_text, (SCREEN_WIDTH - score_text.get_width() - 20, 20))
 
         pygame.display.flip()
 
